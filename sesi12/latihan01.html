@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan 1 JSON</title>
+</head>
+<body>
+    
+    NIM: <input type="text" id="txNIM"><br>
+    NAMA: <input type="text" id="txNAMA"><br>
+    JKEL: <input type="text" id="txJKEL"><br>
+    ALAMAT: <input type="text" id="txALAMAT"><br>
+    TGL LAHIR: <input type="text" id="txTGL"><br>
+    JURUSAN: <input type="text" id="txJUR"><br>
+    HOBI: <input type="text" id="txHOBI"><br>
+
+    <script>
+        const bacadata = new XMLHttpRequest();
+        bacadata.open("GET","http://localhost/sesi%2011/latihan01.php")
+        bacadata.send();
+
+        bacadata.onload = function(){
+            const dta = JSON.parse(this.responseText);
+            let JKEL = (dta.JKEL=="L")?"Laki-Laki":"Perempuan";
+
+
+            console.log(dta);
+            document.getElementById("txNIM").value = dta.NIM;
+            document.getElementById("txNAMA").value = dta.NAMA;
+            document.getElementById("txJKEL").value = JKEL;
+            document.getElementById("txALAMAT").value = dta.ALAMAT;
+            document.getElementById("txTGL").value = dta.TGLL;
+            document.getElementById("txJUR").value = dta.JURUSAN;
+            document.getElementById("txHOBI").value = dta.HOBI;
+        }
+    </script>
+</body>
+</html>
