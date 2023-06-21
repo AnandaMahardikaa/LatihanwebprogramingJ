@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan 2</title>
+    <script src="jquery-3.7.0.min.js"></script>
+</head>
+<body>
+    
+    <h3>Menghitung Luas</h3>
+    <div>
+        <button type="button" id="c1">Luas segi3</button>
+        <button type="button" id="c2">luas persegi</button>     
+    </div>
+
+    <div class="persegi">
+
+        <div>
+            Nilai Panjang
+                <input type="number" id="PJ">
+        </div>
+        <div>
+            Nilai Lebar
+                <input type="number" id="LB">
+        </div>
+        <div>
+            <button type="button" id="Hitungpersegi">Hitung Luas</button>
+        </div>
+    </div>
+    <div class="segi3">
+
+        <div>
+            Nilai Alas
+                <input type="number" id="AL">
+        </div>
+        <div>
+            Nilai Tinggi
+                <input type="number" id="TG">
+        </div>
+        <div>
+            <button type="button" id="Hitungsegi3">HASIL</button>
+        </div>
+    </div>
+    <div class="hasil"></div>
+    <script>
+        $(function(){
+            $(".persegi").hide();
+            $(".segi3").hide();
+
+                $("#c1").click(function(){
+                $(".segi3").show(500);
+                $(".persegi").hide(1500);
+                $(".hasil").html("");
+                $("h3").html("Hitung Luas Persegi");
+            });
+            $("#c2").click(function(){
+                $(".persegi").show(500);
+                $(".segi3").hide(1500);
+                $(".hasil").html("");
+                $("h3").html("Hitung Luas Segi3");
+            }); 
+            $("#Hitungpersegi").click(function(){
+                let P = $("#PJ").val();
+                let L = $("#LB").val();
+                let LU = P*L;
+                let tx = "Hitung Luas Persegi dengan Nilai Panjang"+P;
+                tx +=" dan Lebar"+L+" adalah : <br>";
+                tx +="Luas = Panjang X Lebar<br>";
+                tx +="= "+P+" X "+L+" <br>";
+                tx +="= "+LU+" <br>";
+                tx += "jadi luasnya adalah "+LU;
+                $(".hasil").html(tx);
+            });  
+            $("#Hitungsegi3").click(function(){
+                let A = $("#AL").val();
+                let T = $("#TG").val();
+                let LA = A*T*0.5;
+                let tx = "Hitung Luas Segi tiga dengan nilai Alas"+A;
+                tx +=" dan Tinggi"+T+" adalah : <br>";
+                tx +="Luas = Alas X Tinggi X 1/2 <br>";
+                tx +="= "+A+" X "+T+" <br>";
+                tx +="= "+LA+" <br>";
+                tx += "jadi luasnya adalah "+LA;
+                $(".hasil").html(tx);
+            });  
+         });
+    </script>
+</body>
+</html>

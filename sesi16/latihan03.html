@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project</title>
+</head>
+<body>
+    <h3 style="text-align: center;">Conversi Suhu</h3>
+
+   <div style="margin-left: 39%">
+    <div>
+        Celcius
+        <input type="number" id="C">
+    </div>
+    <div>
+        Farenheit
+        <input type="number" id="F">
+    </div>
+    <div>
+        Kelvin
+        <input type="number" id="K">
+    </div>
+   </div> 
+   <script src="jquery-3.7.0.min.js"></script>
+   <script>
+        $(function(){
+            $("#C").on("input", function(){
+                console.log("Nilai Dari C: "+$("#C").val() );
+                
+            });
+            $('#F').on("input",function(){
+                console.log("Nilai Dari F: "+ $("#F").val() );
+            });
+            $('#K').on("input",function(){
+                console.log("Nilai Dari K: "+ $("#K").val() );
+            });
+        });
+   </script>
+</body>
+</html>
